@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Copyright (C) 2013 Canonical Ltd.
+#
+# Author: Alberto Milone <alberto.milone@canonical.com>
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+PKG_name    := nvidia-persistenced
+tmp_dir     := _out
+
+clean:
+	rm -Rf $(tmp_dir)
+	dh clean
+
+override_dh_auto_install:
+	dh_auto_install -- DESTDIR=$(CURDIR)/debian/$(PKG_name) PREFIX=/usr install
+
+%:
+	dh $@ 
