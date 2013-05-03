@@ -24,9 +24,11 @@ upstart_service="nvidia-persistenced"
 case "$1" in
     install)
         # Is the daemon is already running?
-        if [ -f "$pid_file" ] && ps -p `cat $pid_file` > /dev/null 2>&1; then
+        if [ -f "$pid_file" ] && ps -p `cat $pid_file` \
+           > /dev/null 2>&1; then
             # Stop the daemon
-            if initctl status "$upstart_service" | grep "start" > /dev/null 2>&1; then
+            if initctl status "$upstart_service" | \
+               grep "start" > /dev/null 2>&1; then
                 initctl stop "$upstart_service"
             else
                 kill -9 `cat $pid_file`
