@@ -28,7 +28,7 @@ case "$1" in
     configure)
         # Set the correct permissions
         chmod 0755 /usr/bin/nvidia-persistenced
-        
+
         if ! id $nvpd_user > /dev/null 2>&1; then
             # Create the user and group
             useradd -s /sbin/nologin -d '/' \
