@@ -32,8 +32,12 @@ case "$1" in
             -c 'NVIDIA Persistence Daemon' -r "$nvpd_user"
         fi
 
-        if ! initctl status "$upstart_service" | \
-           grep "start" > /dev/null 2>&1; then
+        job_status="$(initctl status "$upstart_service" 2>/dev/null | \
+           grep "start" || true)"
+
+#        if ! initctl status "$upstart_service" | \
+#           grep "start" > /dev/null 2>&1; then
+         if [ ! -z "$job_status" ]; then
             # Start the daemon
             initctl start "$upstart_service"
         fi

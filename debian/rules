@@ -8,6 +8,7 @@
 export DH_VERBOSE=1
 
 PKG_name    := nvidia-persistenced
+PKG_user    := nvidia-persistenced
 tmp_dir     := _out
 
 clean:
@@ -16,6 +17,10 @@ clean:
 
 override_dh_auto_install:
 	dh_auto_install -- DESTDIR=$(CURDIR)/debian/$(PKG_name) PREFIX=/usr install
+
+	mkdir -p $(CURDIR)/debian/$(PKG_name)/etc/init
+	sed s/__USER__/$(PKG_user)/g $(CURDIR)/init/upstart/nvidia-persistenced.conf.template \
+              > $(CURDIR)/debian/$(PKG_name)/etc/init/nvidia-persistenced.conf
 
 	# Set the correct permissions
 	chmod 0755 $(CURDIR)/debian/$(PKG_name)/usr/bin/nvidia-persistenced

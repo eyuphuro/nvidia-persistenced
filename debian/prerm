@@ -24,8 +24,8 @@ upstart_file="/etc/init/nvidia-persistenced.conf"
 upstart_service="nvidia-persistenced"
 
 case "$1" in
-    remove)
-        initctl stop $upstart_service || true
+    remove|upgrade)
+        initctl stop $upstart_service 2>/dev/null || true
 
         rm -f $upstart_file
     ;;
