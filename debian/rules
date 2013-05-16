@@ -17,5 +17,8 @@ clean:
 override_dh_auto_install:
 	dh_auto_install -- DESTDIR=$(CURDIR)/debian/$(PKG_name) PREFIX=/usr install
 
+	# Set the correct permissions
+	chmod 0755 $(CURDIR)/debian/$(PKG_name)/usr/bin/nvidia-persistenced
+
 %:
 	dh $@ 
