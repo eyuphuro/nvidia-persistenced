@@ -17,7 +17,6 @@ set -e
 # for details, see http://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
-pid_file="/var/run/nvidia-persistenced/nvidia-persistenced.pid"
 upstart_file="/etc/init/nvidia-persistenced.conf"
 upstart_service="nvidia-persistenced"
 
@@ -25,7 +24,7 @@ case "$1" in
     install|upgrade)
         # Remove any nvidia-persistenced from other installations
         # such as xorg-edgers, the nvidia-installer, etc.
-        if [ -z "$2" ]
+        if [ -z "$2" ]; then
             rm -f "$upstart_file"
         fi
 
