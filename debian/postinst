@@ -28,8 +28,10 @@ case "$1" in
     configure)
         if ! id $nvpd_user > /dev/null 2>&1; then
             # Create the user and group
-            useradd --system --home '/' --shell '/sbin/nologin' \
-            -c 'NVIDIA Persistence Daemon' "$nvpd_user"
+            adduser --system --no-create-home --home '/' \
+            --shell '/sbin/nologin' \
+            --gecos 'NVIDIA Persistence Daemon' \
+            --group "$nvpd_user"
         fi
     ;;
 
