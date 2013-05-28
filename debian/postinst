@@ -31,16 +31,6 @@ case "$1" in
             useradd --system --home '/' --shell '/sbin/nologin' \
             -c 'NVIDIA Persistence Daemon' "$nvpd_user"
         fi
-
-        job_status="$(initctl status "$upstart_service" 2>/dev/null | \
-           grep "start" || true)"
-
-#        if ! initctl status "$upstart_service" | \
-#           grep "start" > /dev/null 2>&1; then
-         if [ ! -z "$job_status" ]; then
-            # Start the daemon
-            initctl start "$upstart_service"
-        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

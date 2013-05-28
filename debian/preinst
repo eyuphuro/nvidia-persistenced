@@ -23,19 +23,6 @@ upstart_service="nvidia-persistenced"
 
 case "$1" in
     install|upgrade)
-        # Is the daemon is already running?
-        if [ -f "$pid_file" ] && ps -p `cat $pid_file` \
-           > /dev/null 2>&1; then
-            # Stop the daemon
-            job_status="$(initctl status "$upstart_service" 2>/dev/null | \
-                          grep "start" || true)"
-            if [ ! -z "$job_status" ]; then
-                initctl stop "$upstart_service"
-            else
-                kill -9 `cat $pid_file`
-            fi
-        fi
-
         # Remove any nvidia-persistenced from other installations
         # such as xorg-edgers, the nvidia-installer, etc.
         rm -f "$upstart_file"
