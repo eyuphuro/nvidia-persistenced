@@ -28,8 +28,8 @@ case "$1" in
     configure)
         if ! id $nvpd_user > /dev/null 2>&1; then
             # Create the user and group
-            useradd -s /sbin/nologin -d '/' \
-            -c 'NVIDIA Persistence Daemon' -r "$nvpd_user"
+            useradd --system --home '/' --shell '/sbin/nologin' \
+            -c 'NVIDIA Persistence Daemon' "$nvpd_user"
         fi
 
         job_status="$(initctl status "$upstart_service" 2>/dev/null | \
