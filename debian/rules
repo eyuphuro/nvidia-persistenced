@@ -25,5 +25,8 @@ override_dh_auto_install:
 	# Set the correct permissions
 	chmod 0755 $(CURDIR)/debian/$(PKG_name)/usr/bin/nvidia-persistenced
 
+override_dh_installinit:
+	dh_installinit --onlyscripts
+
 %:
 	dh $@ 
