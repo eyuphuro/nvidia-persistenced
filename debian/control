@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/tseliot/nvidia-persistenced.git
 
 Package: nvidia-persistenced
 Architecture: i386 amd64 lpia
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: adduser, ${shlibs:Depends}, ${misc:Depends}
 Description: Load the NVIDIA kernel driver and create device files
  nvidia-persistenced is a simple setuid root utility which loads the NVIDIA kenel
  module and creates the NVIDIA device files, to allow usage of the NVIDIA
