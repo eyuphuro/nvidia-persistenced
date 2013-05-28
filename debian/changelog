@@ -1,5 +1,5 @@
-nvidia-persistenced (319.17-0ubuntu1) saucy; urgency=low
+nvidia-persistenced (319.17-0ubuntu1) UNRELEASED; urgency=low
 
-  * Initial release.
+  * 
 
- -- Alberto Milone <alberto.milone@canonical.com>  Thu, 16 May 2013 16:11:25 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Fri, 03 May 2013 18:53:33 +0200
