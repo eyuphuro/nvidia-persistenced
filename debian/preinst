@@ -25,7 +25,9 @@ case "$1" in
     install|upgrade)
         # Remove any nvidia-persistenced from other installations
         # such as xorg-edgers, the nvidia-installer, etc.
-        rm -f "$upstart_file"
+        if [ -z "$2" ]
+            rm -f "$upstart_file"
+        fi
 
     ;;
 
