@@ -11,8 +11,10 @@ Vcs-Browser: https://github.com/tseliot/nvidia-persistenced.git
 Package: nvidia-persistenced
 Architecture: i386 amd64 lpia
 Depends: adduser, ${shlibs:Depends}, ${misc:Depends}
-Description: Load the NVIDIA kernel driver and create device files
- nvidia-persistenced is a simple setuid root utility which loads the NVIDIA kenel
- module and creates the NVIDIA device files, to allow usage of the NVIDIA
- driver by client applications that would otherwise not have sufficient
- permission to load the module or create the device files on their own.
+Description: Daemon to set persistence mode to NVIDIA GPUs
+ nvidia-persistenced is a daemon to set persistence mode
+ to NVIDIA GPUs. When persistence mode is enabled the
+ NVIDIA driver remains loaded even when no active clients,
+ such as X11 or nvidia-smi, exist. This minimizes the
+ driver load latency associated with running dependent
+ apps, such as CUDA programs.
