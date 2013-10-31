@@ -1,5 +1,5 @@
-nvidia-persistenced (319.17-0ubuntu1) UNRELEASED; urgency=low
+nvidia-persistenced (331.17-0ubuntu1) trusty; urgency=low
 
-  * 
+  * Initial release (LP: #1246735).
 
- -- Alberto Milone <alberto.milone@canonical.com>  Fri, 03 May 2013 18:53:33 +0200
+ -- Alberto Milone <alberto.milone@canonical.com>  Thu, 31 Oct 2013 15:14:45 +0100
