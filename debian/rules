@@ -7,9 +7,18 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
+PKG_version := $(shell dpkg-parsechangelog | awk -F' ' '/^Version:/ {print $$2}' | awk -F- '{print $$1}')
+PKG_version := $(shell echo $(PKG_version) | sed s/.*\.really\.//g)
+PKG_source  := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 PKG_name    := nvidia-persistenced
 PKG_user    := nvidia-persistenced
 tmp_dir     := _out
+url         := "ftp://download.nvidia.com/XFree86/nvidia-persistenced/$(PKG_name)-$(PKG_version).tar.bz2"
+
+.PHONY: download-sources
+download-sources:
+	# Downloads the source tarball
+	wget $(url) -O ../$(PKG_source)_$(PKG_version).orig.tar.bz2
 
 clean:
 	rm -Rf $(tmp_dir)
