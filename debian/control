@@ -3,7 +3,7 @@ Section: contrib/x11
 Priority: extra
 Maintainer: Alberto Milone <alberto.milone@canonical.com>
 Build-Depends: debhelper (>= 8.0.0), m4
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: ftp://download.nvidia.com/XFree86/nvidia-persistenced
 Vcs-Git: git://github.com/tseliot/nvidia-persistenced.git
 Vcs-Browser: https://github.com/tseliot/nvidia-persistenced.git
