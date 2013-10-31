@@ -22,7 +22,6 @@ set -e
 # the debian-policy package
 
 nvpd_user="nvidia-persistenced"
-upstart_service="nvidia-persistenced"
 
 case "$1" in
     configure)
